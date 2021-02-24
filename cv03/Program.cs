@@ -33,8 +33,10 @@ namespace cv03
             //subtraction
             Console.WriteLine(mA - mB);
 
-            //
             Console.WriteLine(-mA);
+
+            //multiplication
+            Console.WriteLine(mA * mB);
             
             Console.ReadLine();
         }
