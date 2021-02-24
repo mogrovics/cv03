@@ -17,8 +17,24 @@ namespace cv03
                 { 7, 8, 9 },
             };
 
+            double[,] matrixB =
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 },
+            };
+            
             Matrix mA = new Matrix(matrixA);
-            Console.WriteLine(mA);
+            Matrix mB = new Matrix(matrixB);
+            
+            //addition
+            Console.WriteLine(mA + mB);
+
+            //subtraction
+            Console.WriteLine(mA - mB);
+
+            //
+            Console.WriteLine(-mA);
             
             Console.ReadLine();
         }

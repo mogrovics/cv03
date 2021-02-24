@@ -53,7 +53,7 @@ namespace cv03
             //temporary result matrix with the same size as matrix "a"
             var tmp = new Matrix(new double[col_size, row_size]);
 
-            //assign addition result to tmp
+            //assign subtraction result to tmp
             for (int i = 0; i < col_size; i++)
             {
                 for (int j = 0; j < row_size; j++)
@@ -105,6 +105,29 @@ namespace cv03
             return true;
         }
 
+        public static Matrix operator -(Matrix a)
+        {
+            // number of elements in a column
+            int col_size = a.matrix.GetLength(0);
+
+            // number of elements in a row
+            int row_size = a.matrix.GetLength(1);
+
+            //temporary result matrix with the same size as matrix "a"
+            var tmp = new Matrix(new double[col_size, row_size]);
+
+            //iterate through the matrix and multiply each element by -1
+            for (int i = 0; i < col_size; i++)
+            {
+                for (int j = 0; j < row_size; j++)
+                {
+                    tmp.matrix[i, j] = a.matrix[i, j] * (-1);
+                }
+            }
+
+            return tmp;
+        }
+
         public static Matrix operator *(Matrix a, Matrix b)
         {
             // number of elements in a column
@@ -145,7 +168,7 @@ namespace cv03
             {
                 for (int j = 0; j < row_size; j++)
                 {
-                    printable +=  matrix[i, j] + " ";
+                    printable +=  matrix[i, j] + ", ";
                 }
 
                 printable += "\n";
