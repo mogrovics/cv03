@@ -19,24 +19,42 @@ namespace cv03
 
             double[,] matrixB =
             {
-                { 1, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, 9 },
+                { 4, 4, 0 },
+                { 2, 7, 8 },
+                { 1, 2, 6 }
             };
             
             Matrix mA = new Matrix(matrixA);
             Matrix mB = new Matrix(matrixB);
-            
+
+            Console.WriteLine("Matrix A:\n" + mA);
+            Console.WriteLine("Matrix B:\n" + mB + "--------------------");
+
             //addition
-            Console.WriteLine(mA + mB);
+            Console.WriteLine("Addition:\n");
+            Console.WriteLine(mA + mB + "--------------------");
 
             //subtraction
-            Console.WriteLine(mA - mB);
+            Console.WriteLine("Subtraction:\n");
+            Console.WriteLine(mA - mB + "--------------------");
 
-            Console.WriteLine(-mA);
+            //equality
+            Console.WriteLine("Equality:\n");
+            Console.WriteLine(mA == mB);
+            Console.WriteLine("--------------------");
+
+            //inequality
+            Console.WriteLine("Inequality:\n");
+            Console.WriteLine(mA != mB);
+            Console.WriteLine("--------------------");
+
+            //inverse elements (not inverse matrix)
+            Console.WriteLine("Inverse elements:\n");
+            Console.WriteLine(-mA + "--------------------");
 
             //multiplication
-            Console.WriteLine(mA * mB);
+            Console.WriteLine("Multiplication:\n");
+            Console.WriteLine(mA * mB + "--------------------");
             
             Console.ReadLine();
         }

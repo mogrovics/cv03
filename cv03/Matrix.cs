@@ -153,6 +153,12 @@ namespace cv03
             return tmp;
         }
 
+        public double Determ()
+        {
+            //TODO
+            return 0;
+        }
+
         public override string ToString()
         {
             // number of elements in a column
