@@ -104,5 +104,54 @@ namespace cv03
             }
             return true;
         }
+
+        public static Matrix operator *(Matrix a, Matrix b)
+        {
+            // number of elements in a column
+            int col_size = a.matrix.GetLength(0);
+
+            // number of elements in a row
+            int row_size = a.matrix.GetLength(1);
+
+            //temporary result matrix with the same size as matrix "a"
+            var res = new Matrix(new double[col_size, row_size]);
+
+            //temporary matrix for comparing dimentions
+            var tmp = res.matrix;
+
+            for (int i = 0; i < col_size; i++)
+            {
+                for (int j = 0; j < row_size; j++)
+                {
+                    //TODO
+                }
+            }
+            return a;
+        }
+
+        public override string ToString()
+        {
+            // number of elements in a column
+            int col_size = matrix.GetLength(0);
+
+            // number of elements in a row
+            int row_size = matrix.GetLength(1);
+
+            //printable output
+            string printable = "";
+
+            //iteration through the matrix
+            for (int i = 0; i < col_size; i++)
+            {
+                for (int j = 0; j < row_size; j++)
+                {
+                    printable +=  matrix[i, j] + " ";
+                }
+
+                printable += "\n";
+            }
+
+            return printable;
+        }
     }
 }
