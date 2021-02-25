@@ -10,7 +10,7 @@ namespace cv03
     {
         double[,] matrix;
 
-        //Matrix constructor, takes matrix as an arg and makes an association with particular instance using "this" keyword
+        //Matrix constructor
         public Matrix(double[,] matrix)
         {
             this.matrix = matrix;
@@ -30,12 +30,20 @@ namespace cv03
             //temporary matrix with the same size as matrix "a"
             var tmp = new Matrix(new double[row_size, col_size]);
 
-            //assign addition result to tmp
-            for (int i = 0; i < row_size; i++)
+            try
             {
-                for (int j = 0; j < col_size; j++)
+                //assign addition result to tmp
+                for (int i = 0; i < row_size; i++)
                 {
-                    tmp.matrix[i, j] = a.matrix[i, j] + b.matrix[i, j];                 }
+                    for (int j = 0; j < col_size; j++)
+                    {
+                        tmp.matrix[i, j] = a.matrix[i, j] + b.matrix[i, j];
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Incorrect dimentions of matrices!");
             }
             
             return tmp;
@@ -53,13 +61,20 @@ namespace cv03
             //temporary matrix with the same size as matrix "a"
             var tmp = new Matrix(new double[row_size, col_size]);
 
-            //assign subtraction result to tmp
-            for (int i = 0; i < row_size; i++)
+            try
             {
-                for (int j = 0; j < col_size; j++)
+                //assign subtraction result to tmp
+                for (int i = 0; i < row_size; i++)
                 {
-                    tmp.matrix[i, j] = a.matrix[i, j] - b.matrix[i, j];
+                    for (int j = 0; j < col_size; j++)
+                    {
+                        tmp.matrix[i, j] = a.matrix[i, j] - b.matrix[i, j];
+                    }
                 }
+            }
+            catch
+            {
+                Console.WriteLine("Incorrect dimentions of matrices!");
             }
 
             return tmp;
@@ -140,17 +155,23 @@ namespace cv03
             //temporary matrix with the same size as matrix "a"
             var tmp = new Matrix(new double[row_size, col_size]);
 
-            for (int i = 0; i < row_size; i++)
+            try
             {
-                for (int j = 0; j < col_size; j++)
+                for (int i = 0; i < row_size; i++)
                 {
-                    for (int k = 0; k < row_size_b; k++)
+                    for (int j = 0; j < col_size; j++)
                     {
-                        tmp.matrix[i, j] += a.matrix[i, k] * b.matrix[k, j];
+                        for (int k = 0; k < row_size_b; k++)
+                        {
+                            tmp.matrix[i, j] += a.matrix[i, k] * b.matrix[k, j];
+                        }
                     }
                 }
             }
-            return tmp;
+            catch
+            {
+                return tmp;
+            }
         }
 
         public double Determ()
