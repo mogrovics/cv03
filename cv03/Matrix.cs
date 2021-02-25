@@ -170,8 +170,10 @@ namespace cv03
             }
             catch
             {
-                return tmp;
+                Console.WriteLine("Incorrect dimentions of matrices!");
             }
+
+            return tmp;
         }
 
         public double Determ()
